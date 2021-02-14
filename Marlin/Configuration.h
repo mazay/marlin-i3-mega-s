@@ -505,9 +505,9 @@
   // #endif
 
   // i3 Mega stock v5 hotend, 40W heater cartridge (3.6Ω @ 22°C)
-  #define  DEFAULT_Kp 15.94
-  #define  DEFAULT_Ki 1.17
-  #define  DEFAULT_Kd 54.19
+  #define  DEFAULT_Kp 11.59
+  #define  DEFAULT_Ki 0.66
+  #define  DEFAULT_Kd 50.80
 #endif // PIDTEMP
 
 //===========================================================================
@@ -550,9 +550,9 @@
   // #define DEFAULT_bedKd 305.4
 
   //Anycubic i3 Mega Ultrabase (0.9Ω @ 22°C)
-  #define DEFAULT_bedKp 251.78
-  #define DEFAULT_bedKi 49.57
-  #define DEFAULT_bedKd 319.73
+  #define DEFAULT_bedKp 98.79
+  #define DEFAULT_bedKi 18.00
+  #define DEFAULT_bedKd 361.49
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -801,10 +801,10 @@
  * When changing speed and direction, if the difference is less than the
  * value set here, it may happen instantaneously.
  */
-// #define CLASSIC_JERK
+#define CLASSIC_JERK
 #if ENABLED(CLASSIC_JERK)
-  #define DEFAULT_XJERK 10.0
-  #define DEFAULT_YJERK 10.0
+  #define DEFAULT_XJERK  8.0
+  #define DEFAULT_YJERK  8.0
   #define DEFAULT_ZJERK  0.4
 
   //#define TRAVEL_EXTRA_XYJERK 0.0     // Additional jerk allowance for all travel moves
@@ -1139,7 +1139,7 @@
 #define Y_BED_SIZE 215
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -5
+#define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
@@ -1182,7 +1182,7 @@
  * RAMPS-based boards use SERVO3_PIN for the first runout sensor.
  * For other boards you may need to define FIL_RUNOUT_PIN, FIL_RUNOUT2_PIN, etc.
  */
-#define FILAMENT_RUNOUT_SENSOR
+// #define FILAMENT_RUNOUT_SENSOR
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
   #define FIL_RUNOUT_ENABLED_DEFAULT true // Enable the sensor on startup. Override with M412 followed by M500.
   #define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
@@ -1499,7 +1499,7 @@
 // every couple of seconds when it can't accept commands.
 //
 #define HOST_KEEPALIVE_FEATURE        // Disable this if your host doesn't like keepalive messages
-#define DEFAULT_KEEPALIVE_INTERVAL 2  // Number of seconds between "busy" messages. Set with M113.
+#define DEFAULT_KEEPALIVE_INTERVAL 5  // Number of seconds between "busy" messages. Set with M113.
 #define BUSY_WHILE_HEATING            // Some hosts require "busy" messages even during heating
 
 //
@@ -2431,3 +2431,7 @@
 
 // Edit servo angles with M281 and save to EEPROM with M500
 //#define EDITABLE_SERVO_ANGLES
+
+// Enable Anycubic TFT
+#define ANYCUBIC_FILAMENT_RUNOUT_SENSOR
+#define ANYCUBIC_TFT_DEBUG
